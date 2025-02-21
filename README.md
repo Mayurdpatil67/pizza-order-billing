@@ -1,5 +1,6 @@
 # Pizza Bill Generator
 
+## Purpose
 - A simple project to hands on object oriented programming (OOP) in java.
 
 ## Overview
