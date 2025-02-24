@@ -1,4 +1,4 @@
-public class DeluxPizza extends Pizza{
+public class DeluxPizza extends Pizza {
 
     public DeluxPizza(boolean veg) {
         super(veg);

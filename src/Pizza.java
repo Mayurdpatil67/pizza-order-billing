@@ -1,60 +1,51 @@
 public class Pizza {
 
     private int price;
-    private  boolean veg;
+    private boolean veg;
 
-    private  int extraCheesePrice = 100;
-    private  int extraToppingsPrice = 150;
-    private  int backPackPrice= 20;
+    private final int extraCheesePrice = 100;
+    private final int extraToppingsPrice = 150;
+    private final int backPackPrice = 20;
 
-    private  int basePizzaPrice;
-
+    private int basePizzaPrice;
     private boolean isExtraCheeseAdded = false;
-    private  boolean isExtraToppingsAdded= false;
-    private  boolean isOptedForTakeAway = false;
-
+    private boolean isExtraToppingsAdded = false;
+    private boolean isOptedForTakeAway = false;
 
     public Pizza(boolean veg) {
-
         this.veg = veg;
-        if(this.veg){
-            this.price = 300;
-        }else{
-            this.price= 400;
-        }
+        this.price = veg ? 300 : 400;
         basePizzaPrice = this.price;
     }
 
-    public void addExtraCheese(){
+    public void addExtraCheese() {
         isExtraCheeseAdded = true;
-        this.price +=extraCheesePrice;
+        this.price += extraCheesePrice;
     }
 
-    public  void addExtraToppings() {
+    public void addExtraToppings() {
         isExtraToppingsAdded = true;
-        this.price +=extraToppingsPrice;
+        this.price += extraToppingsPrice;
     }
 
-    public  void takeAway(){
+    public void takeAway() {
         isOptedForTakeAway = true;
         this.price += backPackPrice;
     }
 
-    public  void getBill(){
-
-        String bill =  "";
-        System.out.println("Pizza :"+ basePizzaPrice);
-        if(isExtraCheeseAdded){
-            bill += "Extra cheese added: "+extraCheesePrice+"\n";
+    public void getBill() {
+        StringBuilder bill = new StringBuilder();
+        System.out.println("Pizza Base Price: " + basePizzaPrice);
+        if (isExtraCheeseAdded) {
+            bill.append("Extra Cheese: ").append(extraCheesePrice).append("\n");
         }
-        if(isExtraToppingsAdded){
-            bill += "Extra toppings added: "+extraToppingsPrice+"\n";
+        if (isExtraToppingsAdded) {
+            bill.append("Extra Toppings: ").append(extraToppingsPrice).append("\n");
         }
-        if(isOptedForTakeAway){
-            bill += "Take away: "+backPackPrice+"\n";
+        if (isOptedForTakeAway) {
+            bill.append("Takeaway Charge: ").append(backPackPrice).append("\n");
         }
-        bill += "Bill: " + this.price + "\n";
+        bill.append("Total Bill: ").append(this.price).append("\n");
         System.out.println(bill);
     }
- }
-
+}
